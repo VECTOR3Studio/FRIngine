@@ -3,14 +3,18 @@
   "tasks": [
     {
       "type": "cppbuild",
-      "label": "C/C++: clang++ build active file",
+      "label": "C/C++: clang++ build project",
       "command": "/usr/bin/clang++",
       "args": [
-        "-std=c++17", // Only one standard definition is needed
+        "-std=c++17",
         "-g",
-        "${file}",
+        // List all your .cpp source files here
+        "${workspaceFolder}/main.cpp",
+        "${workspaceFolder}/Player.cpp",
+        // The output executable name
         "-o",
-        "${fileDirname}/${fileBasenameNoExtension}",
+        "${workspaceFolder}/FRIngine",
+        // SFML include and library paths
         "-I/opt/homebrew/include",
         "-L/opt/homebrew/lib",
         "-lsfml-graphics",
@@ -18,7 +22,7 @@
         "-lsfml-system"
       ],
       "options": {
-        "cwd": "${fileDirname}"
+        "cwd": "${workspaceFolder}"
       },
       "problemMatcher": ["$gcc"],
       "group": {
